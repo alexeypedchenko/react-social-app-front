@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.11.3",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
@@ -34,5 +35,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {
+    "axios": "^0.21.1",
+    "dayjs": "^1.10.4",
+    "react-router-dom": "^5.2.0"
+  },
+  "proxy": "https://europe-west2-react-social-app-3f56b.cloudfunctions.net/api"
 }
