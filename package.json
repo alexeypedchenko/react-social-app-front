@@ -39,7 +39,11 @@
   "devDependencies": {
     "axios": "^0.21.1",
     "dayjs": "^1.10.4",
-    "react-router-dom": "^5.2.0"
+    "jwt-decode": "^3.1.2",
+    "react-redux": "^7.2.3",
+    "react-router-dom": "^5.2.0",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
   },
   "proxy": "https://europe-west2-react-social-app-3f56b.cloudfunctions.net/api"
 }
