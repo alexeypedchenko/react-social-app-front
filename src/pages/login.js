@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import AppIcon from '../images/icon.jpg'
 import { Link } from 'react-router-dom'
-// import axios from 'axios'
 import {formTheme} from '../util/theme'
 
 // Redux
