@@ -37,6 +37,7 @@
     ]
   },
   "devDependencies": {
+    "@material-ui/icons": "^4.11.2",
     "axios": "^0.21.1",
     "dayjs": "^1.10.4",
     "jwt-decode": "^3.1.2",

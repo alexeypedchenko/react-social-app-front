@@ -6,15 +6,16 @@ import {
   CLEAR_ERRORS,
   LOADING_UI,
   SET_UNAUTHENTICATED,
+  LOADING_USER,
 } from '../types'
 
 export const loginUser = (userData, history) => (dispatch) => {
-  dispatch({type: LOADING_UI})
+  dispatch({ type: LOADING_UI })
   axios.post('/login', userData)
     .then((res) => {
       setAuthorizationHeader(res.data.token)
       dispatch(getUserData())
-      dispatch({type: CLEAR_ERRORS})
+      dispatch({ type: CLEAR_ERRORS })
       console.log('push');
       history.push('/')
     })
@@ -27,12 +28,12 @@ export const loginUser = (userData, history) => (dispatch) => {
 }
 
 export const signupUser = (newUserData, history) => (dispatch) => {
-  dispatch({type: LOADING_UI})
+  dispatch({ type: LOADING_UI })
   axios.post('/signup', newUserData)
     .then((res) => {
       setAuthorizationHeader(res.data.token)
       dispatch(getUserData())
-      dispatch({type: CLEAR_ERRORS})
+      dispatch({ type: CLEAR_ERRORS })
       console.log('push');
       history.push('/')
     })
@@ -51,6 +52,7 @@ export const logoutUser = () => (dispatch) => {
 }
 
 export const getUserData = () => (dispatch) => {
+  dispatch({ type: LOADING_USER })
   axios.get('/user')
     .then((res) => {
       dispatch({
@@ -59,6 +61,15 @@ export const getUserData = () => (dispatch) => {
       })
     })
     .catch((err) => console.log('err: ', err))
+}
+
+export const uploadImage = (formData) => (dispatch) => {
+  dispatch({type: LOADING_USER})
+  axios.post('/user/image/', formData)
+    .then(() => {
+      dispatch(getUserData())
+    })
+    .catch((err) => console.log(err))
 }
 
 const setAuthorizationHeader = (token) => {
