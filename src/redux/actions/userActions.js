@@ -16,7 +16,6 @@ export const loginUser = (userData, history) => (dispatch) => {
       setAuthorizationHeader(res.data.token)
       dispatch(getUserData())
       dispatch({ type: CLEAR_ERRORS })
-      console.log('push');
       history.push('/')
     })
     .catch((err) => {
@@ -69,7 +68,16 @@ export const uploadImage = (formData) => (dispatch) => {
     .then(() => {
       dispatch(getUserData())
     })
-    .catch((err) => console.log(err))
+    .catch((err) => console.log('err: ', err))
+}
+
+export const editUserDetails = (userDetails) => (dispatch) => {
+  dispatch({ type: LOADING_USER })
+  axios.post('/user', userDetails)
+    .then(() => {
+      dispatch(getUserData())
+    })
+    .catch((err) => console.log('err: ', err))
 }
 
 const setAuthorizationHeader = (token) => {

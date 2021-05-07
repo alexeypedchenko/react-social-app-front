@@ -1,23 +1,23 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React, { Component, Fragment } from 'react'
 import withStyles from '@material-ui/core/styles/withStyles'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-import { Fragment } from 'react'
 import dayjs from 'dayjs'
+import EditDetails from './EditDetails'
+import MyButton from '../util/MyButton'
 
 // MUI
 import Button from '@material-ui/core/Button'
 import MuiLink from '@material-ui/core/Link'
 import Typography from '@material-ui/core/Typography'
 import Paper from '@material-ui/core/Paper'
-import IconButton from '@material-ui/core/IconButton'
-import Tooltip from '@material-ui/core/Tooltip'
 
 // icons
 import LocationOn from '@material-ui/icons/LocationOn'
 import LinkIcon from '@material-ui/icons/Link'
 import CalendarToday from '@material-ui/icons/CalendarToday'
 import EditIcon from '@material-ui/icons/Edit'
+import KeyboardReturn from '@material-ui/icons/KeyboardReturn'
 
 // redux
 import { connect } from 'react-redux'
@@ -82,7 +82,9 @@ class Profile extends Component {
     const fileInput = document.getElementById('imageInput')
     fileInput.click()
   }
-
+  handleLogout = () => {
+    this.props.logoutUser()
+  }
   render() {
     const {
       classes,
@@ -112,11 +114,9 @@ class Profile extends Component {
                 id="imageInput"
                 onChange={this.handleImageChange}
               />
-              <Tooltip title="tooltip" placement="top">
-                <IconButton className="button" onClick={this.handlePictureChange}>
-                  <EditIcon color="primary" />
-                </IconButton>
-              </Tooltip>
+              <MyButton tip="Choice image" onClick={this.handlePictureChange} btnClassName="button">
+                <EditIcon color="primary" />
+              </MyButton>
             </div>
             <hr />
             <div className="profile-details">
@@ -156,6 +156,10 @@ class Profile extends Component {
                 Joined {dayjs(createdAt).format('MMM YYYY')}
               </span>
             </div>
+            <MyButton tip="Logout" onClick={this.handleLogout}>
+              <KeyboardReturn color="primary" />
+            </MyButton>
+            <EditDetails />
           </div>
         </Paper>
       ) : (

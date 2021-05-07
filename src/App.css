@@ -19,6 +19,9 @@ body {
 .nav-container {
   margin: 0 auto;
 }
+.nav-container svg {
+  color: #fff;
+}
 
 a {
   text-decoration: none;
