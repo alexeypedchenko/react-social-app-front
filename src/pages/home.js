@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Grid from '@material-ui/core/Grid';
 import Scream from '../components/Scream'
 import Profile from '../components/Profile'
-import PropTypes from 'prop-types' 
+import PropTypes from 'prop-types'
 
 // Redux
 import { connect } from 'react-redux'
@@ -14,8 +14,7 @@ class home extends Component {
   }
   render() {
     const { screams, loading } = this.props.data
-    console.log('screams:', screams)
-    let recentScreamsMarkup = !loading ? (
+    const recentScreamsMarkup = !loading ? (
       screams.map(scream => {
         if (scream) {
           return <Scream key={scream.screamId} scream={scream} />
