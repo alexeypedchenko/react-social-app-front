@@ -1,10 +1,10 @@
 import React, { Component, Fragment } from 'react'
-import { formTheme } from '../util/theme'
 import withStyles from '@material-ui/core/styles/withStyles'
 import PropTypes from 'prop-types'
 import MyButton from '../util/MyButton'
 import dayjs from 'dayjs'
-import { Link } from 'react-router-dom' 
+import { Link } from 'react-router-dom'
+import LikeButton from './LikeButton'
 
 // MUI
 import Dialog from '@material-ui/core/Dialog'
@@ -17,6 +17,7 @@ import Typography from '@material-ui/core/Typography'
 // Icons
 import CloseIcon from '@material-ui/icons/Close'
 import UnfoldMoreIcon from '@material-ui/icons/UnfoldMore'
+import ChatIcon from '@material-ui/icons/Chat'
 
 import { connect } from 'react-redux'
 import { getScream } from '../redux/actions/dataActions'
@@ -43,6 +44,10 @@ const styles = {
   },
   dialogContent: {
     padding: 20,
+  },
+  spinner: {
+    textAlign: 'center',
+    margin: '10px 0'
   }
 }
 
@@ -72,7 +77,9 @@ class ScreamDialog extends Component {
       UI: { loading }
     } = this.props
     const dialogMarkup = loading ? (
-      <CircularProgress size={200} />
+      <div className={classes.spinner}>
+        <CircularProgress size={200} thickness={2} />
+      </div>
     ) : (
       <Grid container spacing={16}>
         <Grid item sm={5}>
@@ -100,6 +107,12 @@ class ScreamDialog extends Component {
           >
             { body }
           </Typography>
+          <LikeButton screamId={screamId} />
+          <span>{likeCount} Likes</span>
+          <MyButton tip="comments">
+            <ChatIcon color="primary" />
+          </MyButton>
+          <span>{commentCount} comments</span>
         </Grid>
       </Grid>
     )
