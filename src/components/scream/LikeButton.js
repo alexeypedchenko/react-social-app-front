@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import MyButton from '../util/MyButton'
+import MyButton from '../../util/MyButton'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 // Redux
 import { connect } from 'react-redux'
-import { likeScream, unlikeScream } from '../redux/actions/dataActions'
+import { likeScream, unlikeScream } from '../../redux/actions/dataActions'
 
 // Icons
 import FavoriteIcon from '@material-ui/icons/Favorite'

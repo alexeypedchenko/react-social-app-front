@@ -1,12 +1,12 @@
 import React, { Component, Fragment } from 'react'
-import {formTheme} from '../util/theme'
+import {formTheme} from '../../util/theme'
 import withStyles from '@material-ui/core/styles/withStyles'
 import PropTypes from 'prop-types'
-import MyButton from '../util/MyButton'
+import MyButton from '../../util/MyButton'
 
 // Redux
 import { connect } from 'react-redux'
-import { editUserDetails } from '../redux/actions/userActions'
+import { editUserDetails } from '../../redux/actions/userActions'
 
 // MUI
 import Button from '@material-ui/core/Button'
